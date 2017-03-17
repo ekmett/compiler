@@ -13,8 +13,8 @@ import Data.Hashable
 import Data.IntMap.Strict as IntMap
 import Data.Profunctor
 import Data.Reflection
-import Data.Typeable
 import Data.Set as Set
+import Data.Typeable
 
 data NetworkState = NetworkState {-# UNPACK #-} !Int !(IntMap (Set Int)) 
 newtype Network = Network (TVar NetworkState)
