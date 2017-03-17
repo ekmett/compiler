@@ -1,0 +1,67 @@
+name:          compiler
+category:      Compiler
+version:       0
+license:       BSD2
+cabal-version: >= 1.8
+license-file:  LICENSE
+author:        Edward A. Kmett
+maintainer:    Edward A. Kmett <ekmett@gmail.com>
+stability:     provisional
+homepage:      http://github.com/ekmett/compiler/
+bug-reports:   http://github.com/ekmett/compiler/issues
+copyright:     Copyright (C) 2017 Edward A. Kmett
+synopsis:      Random compiler tech
+description:   Random compiler tech
+build-type:    Custom
+
+extra-source-files:
+  .travis.yml
+  CHANGELOG.markdown
+  README.markdown
+
+source-repository head
+  type: git
+  location: git://github.com/ekmett/compiler.git
+
+custom-setup
+ setup-depends:
+   base >= 4 && <5,
+   Cabal,
+   cabal-doctest >= 1 && <1.1
+
+
+library
+  build-depends:
+    base                >= 4   && < 5,
+    base-orphans        >= 0.5 && < 1,
+    comonad,
+    containers,
+    hashable,
+    mtl,
+    primitive,
+    profunctors,
+    reflection,
+    stm,
+    transformers        >= 0.2 && < 0.6,
+    transformers-compat >= 0.3 && < 1
+
+  hs-source-dirs: .
+  exposed-modules:
+    Compiler.Disjoint
+    Compiler.Prop
+    Compiler.Sharing
+    Compiler.STM
+    Compiler.STM.Chan
+
+  ghc-options: -Wall
+
+test-suite doctests
+  type:    exitcode-stdio-1.0
+  main-is: doctests.hs
+  build-depends:
+    base      >= 4,
+    directory >= 1.0,
+    doctest   >= 0.9.1,
+    filepath  >= 1.2
+  ghc-options: -Wall -threaded
+  hs-source-dirs: tests
