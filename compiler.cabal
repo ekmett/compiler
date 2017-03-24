@@ -36,6 +36,7 @@ library
     base-orphans        >= 0.5 && < 1,
     comonad,
     containers,
+    exceptions,
     hashable,
     mtl,
     primitive,
@@ -48,6 +49,8 @@ library
   hs-source-dirs: .
   exposed-modules:
     Compiler.Disjoint
+    Compiler.Lock
+    Compiler.Lock.Shared
     Compiler.Prop
     Compiler.Sharing
     Compiler.STM
