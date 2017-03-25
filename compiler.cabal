@@ -37,6 +37,7 @@ library
     comonad,
     containers,
     exceptions,
+    ghc-prim            >= 0.5,
     hashable,
     mtl,
     primitive,
@@ -51,6 +52,7 @@ library
     Compiler.Disjoint
     Compiler.Lock
     Compiler.Lock.Shared
+    Compiler.Primitive
     Compiler.Prop
     Compiler.Sharing
     Compiler.STM
